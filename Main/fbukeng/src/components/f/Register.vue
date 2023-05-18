@@ -1,0 +1,87 @@
+<script setup>
+import { ref } from 'vue';
+import { useAuthStore } from '../../stores/auth';
+
+const authStore = useAuthStore();
+
+const form = ref({
+    name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+    user_type: "Customer",
+});
+
+</script>
+
+<template>
+<div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <svg viewBox="0 0 300 254.46293462319298" class="mx-auto h-15 w-auto" width="160">
+            <defs id="SvgjsDefs3133">
+                <linearGradient id="SvgjsLinearGradient3140">
+                <stop id="SvgjsStop3141" stop-color="#147d6c" offset="0"/>
+                <stop id="SvgjsStop3142" stop-color="#1effff" offset="1"/>
+                </linearGradient>
+            </defs>
+            <g id="SvgjsG3134" featurekey="monogramFeature-0" transform="matrix(3.184713350002723,0,0,3.184713350002723,90,-33.26873144916176)" fill="#000">
+            <path d="M14.88 60 c-9.66 0 -14.88 -1.2 -14.88 -12.54 l0 -20.22 c0 -5.4 3.84 -9.24 9.3 -9.24 c6.42 0 17.4 -0.78 20.58 8.04 c0.96 2.7 0.84 5.94 0.18 8.64 c5.46 1.98 7.62 5.82 7.62 13.2 c0 5.16 -2.52 8.7 -7.5 10.56 c-4.62 1.74 -10.32 1.56 -15.3 1.56 z M9.3 22.14 c-2.4 0 -5.16 1.32 -5.16 5.1 l0 20.04 c0 8.04 2.1 8.58 10.74 8.58 c9.9 0 18.66 -0.06 18.66 -7.98 c0 -5.64 -1.2 -7.86 -4.86 -9.3 c-1.74 4.14 -5.22 8.4 -9.84 8.4 c-5.34 0 -8.46 -5.64 -5.7 -9.96 c1.74 -2.58 5.94 -4.98 12.96 -3.54 c0.48 -2.46 0.42 -4.44 -0.12 -6.06 c-2.04 -5.7 -10.08 -5.28 -16.68 -5.28 z M16.62 39.3 c-1.14 1.8 0.66 4.2 3.18 3.42 c1.74 -0.48 3.72 -2.88 4.86 -5.28 c-2.88 -0.48 -6.6 -0.24 -8.04 1.86 z"/>
+            </g>
+            <g id="SvgjsG3135" featurekey="nameFeature-0" transform="matrix(1.645071725471962,0,0,1.645071725471962,-6.00911735117748,163.26817841156296)" fill="url(#SvgjsLinearGradient3140)">
+            <path d="M18.809 25.098 c3.1836 0.87891 5.3125 2.9688 5.3125 6.9922 c0 4.7656 -2.8906 7.9102 -8.8477 7.9102 l-11.621 0 l0 -28.223 l9.1406 0 c6.0938 0 9.2969 2.9297 9.2969 7.7344 c0 2.4805 -1.0742 4.5117 -3.2813 5.5859 z M12.852 16.641 l-3.5547 0 l0 6.6406 l3.8086 0 c2.5 0 3.5938 -1.4844 3.5938 -3.3984 c0 -1.875 -1.2305 -3.2422 -3.8477 -3.2422 z M14.18 34.9805 c3.1641 0 4.2578 -1.6992 4.2578 -3.5352 c0 -1.875 -1.0742 -3.6523 -4.375 -3.6523 l-4.7656 0 l0 7.1875 l4.8828 0 z M43.633250000000004 40.39063 c-6.1914 0 -11.035 -3.1641 -11.035 -10.273 l0 -18.34 l5.8594 0 l0 17.539 c0 4.2969 2.2852 5.8984 5.1758 5.8984 c2.9102 0 5.2148 -1.6211 5.2148 -5.8984 l0 -17.539 l5.8594 0 l0 18.34 c0 7.1094 -4.8633 10.273 -11.074 10.273 z M81.97309375 40 l-8.7695 -11.992 l-2.0703 0 l0 11.992 l-5.8594 0 l0 -28.223 l5.8594 0 l0 11.094 l1.9922 0 l8.8477 -11.094 l7.1484 0 l-10.938 13.496 l11.27 14.727 l-7.4805 0 z M113.86765625 16.934 l-10.469 0 l0 6.4063 l9.2773 0 l0 5.0977 l-9.2773 0 l0 6.3867 l10.469 0 l0 5.1758 l-16.367 0 l0 -28.223 l16.367 0 l0 5.1563 z M143.02765625 11.777000000000001 l5.8398 0 l0 28.223 l-6.7773 0 l-12.5 -20.176 l0 20.176 l-5.8398 0 l0 -28.223 l6.6992 0 l12.578 20.059 l0 -20.059 z M172.2261875 40.39063 c-8.1445 0 -14.141 -5.625 -14.141 -14.434 c0 -8.9258 6.1328 -14.57 14.434 -14.57 c5.4492 0 9.9609 2.4023 12.422 6.6406 l-5.1367 2.7344 c-1.4844 -2.8906 -4.1406 -4.2773 -7.2852 -4.2773 c-4.8828 0 -8.5547 3.3594 -8.5547 9.3359 c0 5.7617 3.4375 9.4727 8.7695 9.4727 c3.6133 0 6.9336 -1.7969 7.7344 -5.918 l-7.7148 0 l0 -4.707 l13.262 0 l0 15.332 l-4.6094 0 l0 -3.9063 c-1.8164 2.6758 -4.8633 4.2969 -9.1797 4.2969 z"/>
+            </g>
+            <g id="SvgjsG3136" featurekey="sloganFeature-0" transform="matrix(0.6525234804305683,0,0,0.6525234804305683,29.719610727168995,241.28502057804724)" fill="#000">
+            <path d="M4.1211 20 l-3.6914 -14.111 l3.0469 0 l2.7539 10.684 l3.1543 -10.684 l2.4707 0 l3.1348 10.684 l2.7832 -10.684 l3.0371 0 l-3.6914 14.111 l-3.7695 0 l-2.7344 -8.7207 l-2.7246 8.7207 l-3.7695 0 z M37.25376171875 5.888999999999999 l2.9297 0 l0 14.111 l-2.9297 0 l0 -5.8008 l-5.9668 0 l0 5.8008 l-2.9297 0 l0 -14.111 l2.9297 0 l0 5.7617 l5.9668 0 l0 -5.7617 z M57.3098046875 8.467 l-5.2344 0 l0 3.2031 l4.6387 0 l0 2.5488 l-4.6387 0 l0 3.1934 l5.2344 0 l0 2.5879 l-8.1836 0 l0 -14.111 l8.1836 0 l0 2.5781 z M73.06880390625 20 l-3.6719 -6.2109 l-0.84961 0 l0 6.2109 l-2.9297 0 l0 -14.111 l5.1172 0 c3.1934 0 4.541 1.8848 4.541 4.2188 c0 1.8945 -1.0742 3.125 -2.9883 3.5352 l4.248 6.3574 l-3.4668 0 z M68.54740390625 8.32 l0 3.3691 l1.7285 0 c1.5625 0 2.1973 -0.66406 2.1973 -1.6797 c0 -1.0059 -0.63477 -1.6895 -2.1973 -1.6895 l-1.7285 0 z M92.1584375 8.467 l-5.2344 0 l0 3.2031 l4.6387 0 l0 2.5488 l-4.6387 0 l0 3.1934 l5.2344 0 l0 2.5879 l-8.1836 0 l0 -14.111 l8.1836 0 l0 2.5781 z M121.5379765625 5.888999999999999 l-4.6387 7.3535 l0 6.7578 l-2.9395 0 l0 -6.6895 l-4.668 -7.4219 l3.2422 0 l2.8809 4.8047 l2.8906 -4.8047 l3.2324 0 z M135.06106328125 20.19531 c-4.1504 0 -7.2168 -2.832 -7.2168 -7.2559 c0 -4.4336 3.0664 -7.2461 7.2168 -7.2461 c4.1406 0 7.207 2.8125 7.207 7.2461 c0 4.4238 -3.0664 7.2559 -7.207 7.2559 z M135.06106328125 17.5098 c2.4316 0 4.2969 -1.709 4.2969 -4.5703 c0 -2.8516 -1.8652 -4.5508 -4.2969 -4.5508 s-4.2969 1.6992 -4.2969 4.5508 c0 2.8613 1.8652 4.5703 4.2969 4.5703 z M155.478534375 20.19531 c-3.0957 0 -5.5176 -1.582 -5.5176 -5.1367 l0 -9.1699 l2.9297 0 l0 8.7695 c0 2.1484 1.1426 2.9492 2.5879 2.9492 c1.4551 0 2.6074 -0.81055 2.6074 -2.9492 l0 -8.7695 l2.9297 0 l0 9.1699 c0 3.5547 -2.4316 5.1367 -5.5371 5.1367 z M187.7294953125 12.5488 c1.5918 0.43945 2.6563 1.4844 2.6563 3.4961 c0 2.3828 -1.4453 3.9551 -4.4238 3.9551 l-5.8105 0 l0 -14.111 l4.5703 0 c3.0469 0 4.6484 1.4648 4.6484 3.8672 c0 1.2402 -0.53711 2.2559 -1.6406 2.793 z M184.7509953125 8.32 l-1.7773 0 l0 3.3203 l1.9043 0 c1.25 0 1.7969 -0.74219 1.7969 -1.6992 c0 -0.9375 -0.61523 -1.6211 -1.9238 -1.6211 z M185.4149953125 17.4902 c1.582 0 2.1289 -0.84961 2.1289 -1.7676 c0 -0.9375 -0.53711 -1.8262 -2.1875 -1.8262 l-2.3828 0 l0 3.5938 l2.4414 0 z M203.50831953125 20.19531 c-3.0957 0 -5.5176 -1.582 -5.5176 -5.1367 l0 -9.1699 l2.9297 0 l0 8.7695 c0 2.1484 1.1426 2.9492 2.5879 2.9492 c1.4551 0 2.6074 -0.81055 2.6074 -2.9492 l0 -8.7695 l2.9297 0 l0 9.1699 c0 3.5547 -2.4316 5.1367 -5.5371 5.1367 z M226.045140625 20 l-4.3848 -5.9961 l-1.0352 0 l0 5.9961 l-2.9297 0 l0 -14.111 l2.9297 0 l0 5.5469 l0.99609 0 l4.4238 -5.5469 l3.5742 0 l-5.4688 6.748 l5.6348 7.3633 l-3.7402 0 z M263.8329609375 20 l-2.9199 0 l-0.92773 -10.635 l-3.5742 10.635 l-1.8945 0 l-3.5742 -10.635 l-0.9375 10.635 l-2.9297 0 l1.1816 -14.111 l4.1797 0 l3.0078 8.8574 l3.0469 -8.8574 l4.1797 0 z M281.63376953125 20 l-1.0254 -2.9102 l-5.9277 0 l-1.0254 2.9102 l-2.998 0 l5.1953 -14.111 l3.584 0 l5.1953 14.111 l-2.998 0 z M275.53956953125 14.6387 l4.209 0 l-2.0996 -5.9863 z M300.22484375 5.888999999999999 l0 2.5781 l-3.3496 0 l0 11.533 l-2.9004 0 l0 -11.533 l-3.3691 0 l0 -2.5781 l9.6191 0 z M315.91576171875 5.888999999999999 l0 2.5781 l-3.3496 0 l0 11.533 l-2.9004 0 l0 -11.533 l-3.3691 0 l0 -2.5781 l9.6191 0 z M331.6066796875 8.467 l-5.2344 0 l0 3.2031 l4.6387 0 l0 2.5488 l-4.6387 0 l0 3.1934 l5.2344 0 l0 2.5879 l-8.1836 0 l0 -14.111 l8.1836 0 l0 2.5781 z M347.36567890625 20 l-3.6719 -6.2109 l-0.84961 0 l0 6.2109 l-2.9297 0 l0 -14.111 l5.1172 0 c3.1934 0 4.541 1.8848 4.541 4.2188 c0 1.8945 -1.0742 3.125 -2.9883 3.5352 l4.248 6.3574 l-3.4668 0 z M342.84427890625 8.32 l0 3.3691 l1.7285 0 c1.5625 0 2.1973 -0.66406 2.1973 -1.6797 c0 -1.0059 -0.63477 -1.6895 -2.1973 -1.6895 l-1.7285 0 z M362.9590125 20.19531 c-3.0273 0 -5.3906 -1.4551 -5.8203 -4.1016 l3.0273 -0.69336 c0.19531 1.582 1.3574 2.4023 2.9102 2.4023 c1.1914 0 2.1387 -0.52734 2.1289 -1.7188 c-0.0097656 -1.3281 -1.5723 -1.748 -3.291 -2.2754 c-2.0703 -0.64453 -4.2871 -1.4063 -4.2871 -4.0039 c0 -2.627 2.1484 -4.1113 4.9805 -4.1113 c2.4805 0 4.9805 1.0059 5.5469 3.7109 l-2.832 0.70313 c-0.26367 -1.4063 -1.2109 -2.0215 -2.5391 -2.0215 c-1.1816 0 -2.1875 0.48828 -2.1875 1.6504 c0 1.084 1.3867 1.4453 2.9883 1.9238 c2.1289 0.64453 4.6484 1.4648 4.6484 4.2773 c0 2.998 -2.5098 4.2578 -5.2734 4.2578 z"/>
+            </g>
+        </svg>
+        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Create an account</h2>
+    </div>
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6" @submit.prevent="authStore.handleRegister(form)">
+            <div>
+                <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
+                <div class="mt-2">
+                    <input id="name" v-model="form.name" name="name" type="text" autocomplete="name" required="" class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+            </div>
+
+
+            <div>
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                <div class="mt-2">
+                    <input id="email" v-model="form.email" name="email" type="email" autocomplete="email" required="" class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between">
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                </div>
+                <div class="mt-2">
+                    <input id="password" v-model="form.password" name="password" type="password" autocomplete="current-password" required="" class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between">
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Confirm Password</label>
+                </div>
+                <div class="mt-2">
+                    <input id="confirm_password" v-model="form.password_confirmation" name="password" type="password" autocomplete="current-password" required="" class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="flex w-full justify-center rounded-md bg-[#1A7D7A] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#0F9C98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</button>
+            </div>
+        </form>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+        Already registered?
+        {{ ' ' }}
+        <router-link :to="{name: 'Login'}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign-in</router-link>
+        </p>
+    </div>
+</div>
+</template>
