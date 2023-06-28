@@ -1,7 +1,10 @@
 <?php
 
+use App\Mail\OneTimePass;
+use App\Helpers\Otp as Otp;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\BooksController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +20,16 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
+Route::get('testsend', function (){
+    $range = array(100000,999999);
+    $otp = Otp::generate($range);
+    $obj = [
+        'otp' => $otp
+    ];
+    Mail::to('my@email.com')->send(new OneTimePass($obj));
+    
+});
+
 require __DIR__.'/auth.php';
+
+

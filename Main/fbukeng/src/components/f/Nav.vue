@@ -4,8 +4,12 @@ import { useAuthStore } from "../../stores/auth"
 import { initFlowbite } from 'flowbite'
 const authStore = useAuthStore();
 
-onMounted(() => {
+onMounted(async () => {
     initFlowbite();
+    if (authStore.user == null) {
+      await authStore.getUser('Nav');
+      console.log("NAV ON MOUNT ", authStore.user);
+    }
 })
 //items-center justify-between hidden w-full md:flex md:w-auto md:order-1 
 

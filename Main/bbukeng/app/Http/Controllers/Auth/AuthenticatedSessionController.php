@@ -35,4 +35,18 @@ class AuthenticatedSessionController extends Controller
 
         return response()->noContent();
     }
+
+    public function throttleKey()
+    {
+        return Str::lower(request('email')) . '|' . request()->ip();
+    }
+
+    public function checkTooManyFailedAttempts()
+    {
+        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 3)) {
+            return;
+        }
+
+        throw new Exception('IP address banned. Too many login attempts.');
+    }
 }

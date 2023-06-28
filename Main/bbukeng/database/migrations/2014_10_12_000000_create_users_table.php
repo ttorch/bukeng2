@@ -20,6 +20,9 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->enum('user_type', ['Customer', 'Partner', 'Admin'])->default('Customer');
+            $table->string('otp');
+            $table->integer('otp_sent')->default(0);
+            $table->bigInteger('otp_at')->nullable();
         });
     }
 

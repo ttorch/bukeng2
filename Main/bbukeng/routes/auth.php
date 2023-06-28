@@ -1,12 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\MerchantController;
+use App\Http\Controllers\Auth\UserOtpController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\VerifyEmailController;
-use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest')
@@ -35,3 +37,21 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
+
+Route::get('/otp/send/init', [UserOtpController::class, 'init'])
+                ->middleware(['auth'])
+                ->name('otp.init');
+
+Route::get('/otp/send/request', [UserOtpController::class, 'send'])
+                ->middleware(['auth'])
+                ->name('otp.send');
+
+Route::post('/otp/send/verify', [UserOtpController::class, 'verify'])
+                ->middleware(['auth'])
+                ->name('otp.verify');
+
+            
+Route::get('/merchants', [MerchantController::class, 'index'])
+                ->middleware(['auth'])
+                ->name('merchant.index');        
+

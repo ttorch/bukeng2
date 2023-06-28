@@ -1,0 +1,76 @@
+"data": {
+            "id": "cs_sVkjKSw7mcsVBGbgyKhQ78AM",
+            "type": "checkout_session",
+            "attributes": {
+                "billing": {
+                    "address": {
+                        "city": null,
+                        "country": null,
+                        "line1": null,
+                        "line2": null,
+                        "postal_code": null,
+                        "state": null
+                    },
+                    "email": null,
+                    "name": null,
+                    "phone": null
+                },
+                "billing_information_fields_editable": "enabled",
+                "cancel_url": "http:\/\/localhost:3000\/booking\/payment\/cancelled\/15",
+                "checkout_url": "https:\/\/checkout.paymongo.com\/cs_sVkjKSw7mcsVBGbgyKhQ78AM_client_5HZiM7oZHoFcxoPWHYiuQ4W2#cGtfdGVzdF9HMllaN3JiZE1ORkVTdVBkZWJkS1ZvWXM=",
+                "client_key": "cs_sVkjKSw7mcsVBGbgyKhQ78AM_client_5HZiM7oZHoFcxoPWHYiuQ4W2",
+                "customer_email": null,
+                "description": "PaReserve Booking",
+                "line_items": [
+                    {
+                        "amount": 762200,
+                        "currency": "PHP",
+                        "description": "Ponciano, Davao City, 8000 Davao del Sur",
+                        "images": [],
+                        "name": "Standard Single Bed 5",
+                        "quantity": 1
+                    }
+                ],
+                "livemode": false,
+                "merchant": "bukeng",
+                "payments": [],
+                "payment_intent": {
+                    "id": "pi_cGUDsN4TQa3pioB8X9Vfnpm1",
+                    "type": "payment_intent",
+                    "attributes": {
+                        "amount": 762200,
+                        "capture_type": "automatic",
+                        "client_key": "pi_cGUDsN4TQa3pioB8X9Vfnpm1_client_tE8kRcVtHDuCAkzochLeVwLc",
+                        "currency": "PHP",
+                        "description": "PaReserve Booking",
+                        "livemode": false,
+                        "statement_descriptor": "bukeng",
+                        "status": "awaiting_payment_method",
+                        "last_payment_error": null,
+                        "payment_method_allowed": [
+                            "gcash"
+                        ],
+                        "payments": [],
+                        "next_action": null,
+                        "payment_method_options": null,
+                        "metadata": null,
+                        "setup_future_usage": null,
+                        "created_at": 1687272599,
+                        "updated_at": 1687272599
+                    }
+                },
+                "payment_method_types": [
+                    "gcash"
+                ],
+                "reference_number": "89D580A5744",
+                "send_email_receipt": false,
+                "show_description": true,
+                "show_line_items": false,
+                "status": "active",
+                "success_url": "http:\/\/localhost:3000\/booking\/payment\/success\/15\/89D580A5744",
+                "created_at": 1687272599,
+                "updated_at": 1687272599,
+                "metadata": null
+            }
+        }
+    }
